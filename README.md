@@ -12,3 +12,6 @@ Atividade 3 - Visão Análise Projetos Designer e Arquitetura 2023/2
 Certificados Trilhas e Cursos AZ900
 [EntregaCertificadosTrilhasCursosJoaoVictorGoncalves_20231203212523.pdf](https://github.com/StephanyMachado/Unicuritiba/files/13607985/EntregaCertificadosTrilhasCursosJoaoVictorGoncalves_20231203212523.pdf)
 [EntregaCertificadosTrilhasCursosStephanyMarcelaMagdalenoCorreiaMachado_20231203214918.pdf](https://github.com/StephanyMachado/Unicuritiba/files/13607982/EntregaCertificadosTrilhasCursosStephanyMarcelaMagdalenoCorreiaMachado_20231203214918.pdf)
+
+Atividade 2 - Engenharia de requisitos
+[Uploading Atividade 2 Rubem .pdf…]()
