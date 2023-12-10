@@ -1,0 +1,48 @@
+package com.scs.projetoa3.produto;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import java.net.URI;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.ResponseEntity;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class ProdutoResourceTest {
+
+    @Autowired
+    private TestRestTemplate restTemplate;
+
+    @Test
+    public void testCreateProduto() throws Exception {
+        Produto produto = new Produto(null, "Produto A", "Descrição do Produto A");
+        ResponseEntity<Produto> response = restTemplate.postForEntity("/produtos", produto, Produto.class);
+        assertThat(response.getStatusCodeValue()).isEqualTo(201);
+        assertThat(response.getBody().getId()).isNotNull();
+        assertThat(response.getBody().getNome()).isEqualTo(produto.getNome());
+        assertThat(response.getBody().getDescricao()).isEqualTo(produto.getDescricao());
+    }
+
+    @Test
+    public void testFindProdutoById() throws Exception {
+        Integer id = 1;
+        Produto produto = new Produto(id, "Produto B", "Descrição do Produto B");
+        restTemplate.postForEntity("/produtos", produto, Produto.class);
+        ResponseEntity<Produto> response = restTemplate.getForEntity("/produtos/{id}", Produto.class, id);
+        assertThat(response.getStatusCodeValue()).isEqualTo(200);
+        assertThat(response.getBody().getId()).isEqualTo(id);
+        assertThat(response.getBody().getNome()).isEqualTo(produto.getNome());
+        assertThat(response.getBody().getDescricao()).isEqualTo(produto.getDescricao());
+    }
+
+    @Test
+    public void testDeleteProdutoById() throws Exception {
+        Integer id = 2;
+        Produto produto = new Produto(id, "Produto C", "Descrição do Produto C");
+        restTemplate.postForEntity("/produtos", produto, Produto.class);
+        ResponseEntity<Produto> response = restTemplate.exchange("/produtos/{id}", org.springframework.http.HttpMethod.DELETE, null, Produto.class, id);
+        assertThat(response.getStatusCodeValue()).isEqualTo(200);
+        assertThat(response.getBody().getId()).isEqualTo(id);
+        assertThat(response.getBody().getNome()).isEqualTo(produto.getNome());
+        assertThat(response.getBody().getDescricao()).isEqualTo(produto.get
