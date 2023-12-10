@@ -1,0 +1,29 @@
+package com.scs.aBproject;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import com.scs.aBproject.produto.Produto;
+import com.scs.aBproject.produto.ProdutoDaoService;
+
+public class TestProdutoDao {
+
+    @Test
+    public void testProdutoDao() {
+        Integer identifier = 5;
+        String nome = "Smartphone";
+        String fabricante = "Marca1";
+        double preco = 1000.0;
+
+        Produto produtoEsperado = new Produto(identifier, nome, fabricante, preco);
+        ProdutoDaoService service = new ProdutoDaoService();
+        service.save(produtoEsperado);
+
+        Produto produtoEncontrado = new Produto();
+        produtoEncontrado = service.findone(identifier);
+
+        assertEquals(nome, produtoEncontrado.getNome());
+        assertEquals(fabricante, produtoEncontrado.getFabricante());
+        assertEquals(preco, produtoEncontrado.getPreco());
+        assertEquals(identifier, produtoEncontrado.getId());
+    }
+}
