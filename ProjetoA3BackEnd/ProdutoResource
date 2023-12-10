@@ -1,0 +1,26 @@
+package com.scs.projetoa3.produto;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import java.net.URI;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.ResponseEntity;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class ProdutoResourceTest {
+
+    @Autowired
+    private TestRestTemplate restTemplate;
+
+    @Test
+    public void testCreateProduto() throws Exception {
+        Produto produto = new Produto(null, "Produto A", "Descrição do Produto A");
+        ResponseEntity<Produto> response = restTemplate.postForEntity("/produtos", produto, Produto.class);
+        assertThat(response.getStatusCodeValue()).isEqualTo(201);
+        assertThat(response.getBody().getId()).isNotNull();
+        assertThat(response.getBody().getNome()).isEqualTo(produto.getNome());
+        assertThat(response.getBody().getDescricao()).isEqualTo(produto.getDescricao());
+    }
+}
