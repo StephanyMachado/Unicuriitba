@@ -1,0 +1,48 @@
+package com.scs.projetoa3.controllers;
+
+import java.net.URI;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.scs.projetoa3.models.Produto;
+import com.scs.projetoa3.services.ProdutoService;
+
+@RestController
+public class ProdutoJPAResource {
+
+    @Autowired
+    private ProdutoService produtoService;
+
+    @GetMapping("/jpa/produtos")
+    public List<Produto> retrieveAllProdutos() {
+        List<Produto> produtos = produtoService.retrieveAllProdutos();
+        return produtos;
+    }
+
+    @GetMapping("/jpa/produtos/{id}")
+    public Produto retrieveProdutoById(@PathVariable int id) {
+        Produto produto = produtoService.retrieveProdutoById(id);
+        return produto;
+    }
+
+    @DeleteMapping("/jpa/produtos/{id}")
+    public void deleteProdutoById(@PathVariable int id) {
+        produtoService.deleteProdutoById(id);
+    }
+
+    @PostMapping("/jpa/produtos")
+    public ResponseEntity<Object> createProduto(@Valid RequestBody Produto produto) {
+        Produto savedProduto = produtoService.createProduto(produto);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id
