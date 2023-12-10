@@ -1,0 +1,50 @@
+package com.scs.a3project.nusica;
+
+import java.util.Arrays;
+
+public class produto {
+    private Integer id;
+    private String produto;
+    private String categoria;
+
+    public Produto(Integer id, String produto, String categoria) {
+        super();
+        this.id = id;
+        this.produto = produto;
+        this.categoria = categoria;
+    }
+
+    public Produto() {
+        super();
+        11.1000 Auto-generated constructor stub
+    }
+
+    public Integer getid() {
+        return id;
+    }
+
+    public void setid(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return Produto;
+    }
+
+    public void setNome(String produto) {
+        this.produto = produtos;
+    }
+
+    public String getAutor() {
+        return Categoria;
+    }
+
+    public void setAutor(String Categooria) {
+        this.autor = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto [id=" + id + ", produto=" + produto + ", categoria=" + categoria + "]";
+    }
+}
