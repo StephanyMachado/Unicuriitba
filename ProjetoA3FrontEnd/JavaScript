@@ -1,0 +1,11 @@
+document.getElementById('productForm').addEventListener('submit', function(event) {
+ event.preventDefault();
+
+ // Retrieve the form data
+ var nome = document.getElementById('nome').value;
+ var banda = document.getElementById('banda').value;
+ var categoria = document.getElementById('categoria').value;
+
+ // Process the form data, e.g., send it to a server or display it in the UI
+ console.log('Produto cadastrado:', { nome, banda, categoria });
+});
