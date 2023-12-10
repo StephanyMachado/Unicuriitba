@@ -1,0 +1,5 @@
+insert into produto (10001, 'Celular', 'Samsung');
+insert into produto (10002,
+'Sunday Boody Sunday', 'U2');
+insert into produto values (10003,
+'Tenis', 'Nike');
