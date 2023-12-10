@@ -1,0 +1,20 @@
+<div class="product-form">
+ <h2>Cadastrar Produto</h2>
+ <form id="productForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="banda">Banda:</label>
+    <input type="text" id="banda" name="banda" required>
+
+    <label for="categoria">Categoria:</label>
+    <select id="categoria" name="categoria" required>
+      <option value="">Selecione a categoria</option>
+      <option value="pop">POP</option>
+      <option value="rock">ROCK</option>
+      <option value="indie">INDIE</option>
+    </select>
+
+    <button type="submit">Cadastrar</button>
+ </form>
+</div>
