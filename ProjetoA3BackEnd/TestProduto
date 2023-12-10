@@ -1,0 +1,21 @@
+package com.scs.a3project;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class TestProduto {
+
+    @Test
+    public void testProduto() {
+        Integer identifier = 5;
+        String nome = "Smartphone";
+        String marca = "Apple";
+        Produto produtoEncontrado = new Produto();
+        produtoEncontrado.setId(5);
+        produtoEncontrado.setNome("Smartphone");
+        produtoEncontrado.setMarca("Apple");
+        assertEquals(nome, produtoEncontrado.getNome());
+        assertEquals(marca, produtoEncontrado.getMarca());
+        assertEquals(identifier, produtoEncontrado.getId());
+    }
+}
