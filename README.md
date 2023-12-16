@@ -15,3 +15,7 @@ Certificados Trilhas e Cursos AZ900
 
 Atividade 2 - Engenharia de requisitos
 [Uploading Atividade 2 Rubem .pdf…]()
+
+    Atividade Engenharia de requisitos
+
+https://docs.google.com/file/d/1UW40qKfMyCZ2QRvokafuC0-kA1RT_7bv/edit?usp=docslist_api&filetype=msword
